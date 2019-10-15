@@ -75,6 +75,7 @@ gem 'redcarpet'
 
 group :production do
   gem 'puma'
+  gem 'airbrake'
 end
 
 group :development do
