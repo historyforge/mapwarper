@@ -1,11 +1,11 @@
 class GcpsController < ApplicationController
   layout 'application'
-  #skip_before_filter :verify_authenticity_token, :only => [:update, :update_field, :add, :destroy, :show, :add_many, :add_many_to_map]
+  #skip_before_action :verify_authenticity_token, :only => [:update, :update_field, :add, :destroy, :show, :add_many, :add_many_to_map]
 
-  before_filter :authenticate_user!, :only => [:update, :update_field, :add, :destroy, :add_many, :add_many_to_map, :csv]
-  before_filter :check_editor_role, :only => [:add_many, :bulk_import]
-  before_filter :check_administrator_role, :only => [:csv]
-  before_filter :find_gcp, :only => [:show, :update,:update_field, :destroy ]
+  before_action :authenticate_user!, :only => [:update, :update_field, :add, :destroy, :add_many, :add_many_to_map, :csv]
+  before_action :check_editor_role, :only => [:add_many, :bulk_import]
+  before_action :check_administrator_role, :only => [:csv]
+  before_action :find_gcp, :only => [:show, :update,:update_field, :destroy ]
   rescue_from ActiveRecord::RecordNotFound, :with => :bad_record
 
   def show

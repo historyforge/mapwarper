@@ -1,7 +1,7 @@
 class CommentsController < ApplicationController
 
-  before_filter :authenticate_user!
-  before_filter :check_administrator_role, :only => [:index]
+  before_action :authenticate_user!
+  before_action :check_administrator_role, :only => [:index]
  
 
   rescue_from ActiveRecord::RecordNotFound, :with => :bad_record

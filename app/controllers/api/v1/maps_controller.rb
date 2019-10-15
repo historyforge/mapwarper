@@ -1,10 +1,10 @@
 class Api::V1::MapsController < Api::V1::ApiController
-  before_filter :authenticate_user!,       :except=>[:show, :index, :status, :gcps] 
-  before_filter :check_administrator_role, :only => [:publish, :unpublish]
-  before_filter :find_map, :only => [:show, :update, :destroy, :gcps, :rectify, :mask, :delete_mask, :crop, :mask_crop_rectify, :publish, :unpublish, :status ]
-  before_filter :can_edit_map,             :only => [:update, :destroy]
+  before_action :authenticate_user!,       :except=>[:show, :index, :status, :gcps] 
+  before_action :check_administrator_role, :only => [:publish, :unpublish]
+  before_action :find_map, :only => [:show, :update, :destroy, :gcps, :rectify, :mask, :delete_mask, :crop, :mask_crop_rectify, :publish, :unpublish, :status ]
+  before_action :can_edit_map,             :only => [:update, :destroy]
   
-  before_filter :validate_jsonapi_type,:only => [:create, :update]
+  before_action :validate_jsonapi_type,:only => [:create, :update]
   
   rescue_from ActiveRecord::RecordNotFound, :with => :not_found
   rescue_from ActionController::ParameterMissing, with: :missing_param_error

@@ -1,7 +1,7 @@
 class Api::V1::ApiController < ActionController::API
   include ActionController::Serialization
   acts_as_token_authentication_handler_for User, :fallback => :none
-  before_filter :check_protocol
+  before_action :check_protocol
   
   def check_administrator_role
     check_role("administrator")

@@ -1,9 +1,9 @@
 class Api::V1::ImportsController < Api::V1::ApiController
-  before_filter :authenticate_user!
-  before_filter :check_administrator_role
-  before_filter :find_import, :only => [:show, :update, :destroy, :start, :maps]
+  before_action :authenticate_user!
+  before_action :check_administrator_role
+  before_action :find_import, :only => [:show, :update, :destroy, :start, :maps]
   
-  before_filter :validate_jsonapi_type,:only => [:create, :update]
+  before_action :validate_jsonapi_type,:only => [:create, :update]
    
   rescue_from ActiveRecord::RecordNotFound, :with => :not_found
   rescue_from ActionController::ParameterMissing, with: :missing_param_error

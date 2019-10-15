@@ -1,7 +1,7 @@
 class MembershipsController < ApplicationController
-  before_filter :find_group
+  before_action :find_group
 
-  before_filter :authenticate_user!
+  before_action :authenticate_user!
 
 
   def new

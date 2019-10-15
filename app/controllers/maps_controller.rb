@@ -2,20 +2,20 @@ class MapsController < ApplicationController
 
   layout 'mapdetail', :only => [:show, :edit, :preview, :warp, :clip, :align, :activity, :warped, :export, :metadata, :comments]
   
-  before_filter :store_location, :only => [:warp, :align, :clip, :export, :edit, :comments ]
+  before_action :store_location, :only => [:warp, :align, :clip, :export, :edit, :comments ]
   
-  before_filter :authenticate_user!, :only => [:new, :create, :edit, :update, :destroy, :delete, :warp, :rectify, :clip, :align, :warp_align, :mask_map, :delete_mask, :save_mask, :save_mask_and_warp, :set_rough_state, :set_rough_centroid, :publish, :trace, :id, :map_type]
+  before_action :authenticate_user!, :only => [:new, :create, :edit, :update, :destroy, :delete, :warp, :rectify, :clip, :align, :warp_align, :mask_map, :delete_mask, :save_mask, :save_mask_and_warp, :set_rough_state, :set_rough_centroid, :publish, :trace, :id, :map_type]
  
-  before_filter :check_administrator_role, :only => [:publish, :csv]
+  before_action :check_administrator_role, :only => [:publish, :csv]
  
-  before_filter :find_map_if_available,
+  before_action :find_map_if_available,
     :except => [:show, :index, :wms, :tile, :mapserver_wms, :warp_aligned, :status, :new, :create, :update, :edit, :tag, :geosearch, :csv]
 
-  before_filter :check_link_back, :only => [:show, :warp, :clip, :align, :warped, :export, :activity]
-  before_filter :check_if_map_is_editable, :only => [:edit, :update, :map_type]
-  before_filter :check_if_map_can_be_deleted, :only => [:destroy, :delete]
-  #skip_before_filter :verify_authenticity_token, :only => [:save_mask, :delete_mask, :save_mask_and_warp, :mask_map, :rectify, :set_rough_state, :set_rough_centroid]
-  before_filter :set_wms_format, :only => :wms
+  before_action :check_link_back, :only => [:show, :warp, :clip, :align, :warped, :export, :activity]
+  before_action :check_if_map_is_editable, :only => [:edit, :update, :map_type]
+  before_action :check_if_map_can_be_deleted, :only => [:destroy, :delete]
+  #skip_before_action :verify_authenticity_token, :only => [:save_mask, :delete_mask, :save_mask_and_warp, :mask_map, :rectify, :set_rough_state, :set_rough_centroid]
+  before_action :set_wms_format, :only => :wms
 
   rescue_from ActiveRecord::RecordNotFound, :with => :bad_record
 

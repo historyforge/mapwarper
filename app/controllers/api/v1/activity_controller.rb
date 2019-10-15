@@ -1,6 +1,6 @@
 class Api::V1::ActivityController < Api::V1::ApiController
-  before_filter :authenticate_user!
-  before_filter :check_administrator_role, :only => [:stats]
+  before_action :authenticate_user!
+  before_action :check_administrator_role, :only => [:stats]
   
   rescue_from ActiveRecord::RecordNotFound, :with => :not_found
     

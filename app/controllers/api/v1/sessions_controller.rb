@@ -2,7 +2,7 @@ class Api::V1::SessionsController < Devise::SessionsController
   include ActionController::Serialization
   acts_as_token_authentication_handler_for User, :fallback => :none, :except => [:create, :new]
   skip_before_action :verify_authenticity_token
-  skip_before_filter :verify_signed_out_user, :only => [:destroy]
+  skip_before_action :verify_signed_out_user, :only => [:destroy]
 
   # validates authentication tokens
   # just logs in and if successfully logged in, returns the authentication_token
