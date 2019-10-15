@@ -12,7 +12,7 @@ class User < ActiveRecord::Base
   has_many :roles, :through => :permissions
   
   has_many :my_maps, :dependent => :destroy
-  has_many :maps, -> { uniq }, :through => :my_maps
+  has_many :maps, -> { distinct }, :through => :my_maps
  
   has_many :layers, :dependent => :destroy
   has_many :memberships, :dependent => :destroy
