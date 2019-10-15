@@ -1,4 +1,4 @@
-class AddExtraFieldsToImport < ActiveRecord::Migration
+class AddExtraFieldsToImport < ActiveRecord::Migration[4.2]
   def change
     add_column :imports, :status, :integer
     add_column :imports, :save_layer, :boolean

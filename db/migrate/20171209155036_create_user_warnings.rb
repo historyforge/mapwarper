@@ -1,4 +1,4 @@
-class CreateUserWarnings < ActiveRecord::Migration
+class CreateUserWarnings < ActiveRecord::Migration[4.2]
   def change
     create_table :user_warnings do |t|
       t.timestamps null: false

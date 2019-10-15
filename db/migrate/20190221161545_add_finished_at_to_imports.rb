@@ -1,4 +1,4 @@
-class AddFinishedAtToImports < ActiveRecord::Migration
+class AddFinishedAtToImports < ActiveRecord::Migration[4.2]
   def change
     add_column :imports, :finished_at, :datetime
   end
