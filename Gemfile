@@ -2,15 +2,15 @@ source 'https://rubygems.org'
 
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
-gem 'rails', '~> 4.2'
+gem 'rails', '~> 5.2.3'
 # Use sqlite3 as the database for Active Record
 #gem 'sqlite3'
 # Use SCSS for stylesheets
-gem 'sass-rails', '~> 4.0.5'
+gem 'sass-rails', '~>5.0.7'
 # Use Uglifier as compressor for JavaScript assets
 gem 'uglifier', '>= 1.3.0'
 # Use CoffeeScript for .js.coffee assets and views
-gem 'coffee-rails', '~> 4.0.0'
+gem 'coffee-rails', '~> 5.0.0'
 # See https://github.com/sstephenson/execjs#readme for more supported runtimes
 # gem 'therubyracer',  platforms: :ruby
 
@@ -42,31 +42,32 @@ gem 'omniauth-github'
 gem 'omniauth-mediawiki'
 gem 'omniauth-facebook'
 
-gem 'pg', '~>0.21'
+gem 'pg' #, '~>0.21'
 
-gem 'activerecord-postgis-adapter', '~>3.0'
+gem 'activerecord-postgis-adapter', '~>5'
 
-gem 'acts-as-taggable-on', '~> 3.5.0'
-gem 'paperclip', '~> 5.3.0'
+gem 'acts-as-taggable-on' #, '~> 3.5.0'
+gem 'paperclip' #, '~> 5.3.0'
 gem 'acts_as_commentable'
-gem 'will_paginate', '~> 3.0'
+gem 'will_paginate' #, '~> 3.0'
 gem 'spawnling', '~>2.1'
 
 #Rails 4 support for the audited (acts_as_audited gem) is not quite rails4 worthy - see #https://github.com/collectiveidea/audited/pull/166
 #gem 'audited-activerecord', github: 'timwaters/audited', branch: 'rails4'
-gem 'audited-activerecord', '~> 4'
+# gem 'audited-activerecord' #, '~> 5'
+gem "audited", "~> 4.7"
 
 gem 'georuby'
 
-gem 'actionpack-action_caching', github: 'timwaters/actionpack-action_caching', branch: 'feature/take_format_from_request'
+gem 'actionpack-action_caching' #, github: 'timwaters/actionpack-action_caching', branch: 'feature/take_format_from_request'
 gem 'redis-rails', '~> 5'
 
 gem "rails-i18n"
 
 gem 'pg_search'
 
-gem 'rails-api'
-gem 'active_model_serializers', github: 'rails-api/active_model_serializers', tag: 'v0.10.5'
+# gem 'rails-api'
+gem 'active_model_serializers' #, github: 'rails-api/active_model_serializers', tag: 'v0.10.5'
 gem 'simple_token_authentication', '~> 1.0'
 gem 'rack-cors', :require => 'rack/cors'
 gem 'redcarpet'
@@ -75,11 +76,11 @@ group :development do
    gem 'web-console', '~> 2.0'
    gem 'spring'
    gem 'thin'
-   gem 'capistrano', '~> 3.2.1'
-   gem 'capistrano-rails',    :require => false
-   gem 'capistrano-bundler',  :require => false
-   gem 'rvm1-capistrano3',    :require => false
-   gem 'i18n-tasks', '~> 0.9.6'
+   # gem 'capistrano', '~> 3.2.1'
+   # gem 'capistrano-rails',    :require => false
+   # gem 'capistrano-bundler',  :require => false
+   # gem 'rvm1-capistrano3',    :require => false
+   # gem 'i18n-tasks', '~> 0.9.6'
   # gem 'localeapp'
 end
 

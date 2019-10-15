@@ -36,7 +36,6 @@ Rails.application.configure do
 
   # Raises error for missing translations
   # config.action_view.raise_on_missing_translations = true
-  config.active_record.raise_in_transactional_callbacks = true
   config.cache_store = :null_store  
   config.active_support.test_order = :random
 end
