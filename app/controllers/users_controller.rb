@@ -30,7 +30,7 @@ class UsersController < ApplicationController
       from audits group by user_id, username ORDER BY #{sort_clause}"
 
 
-    @users_activity = Audited::Adapters::ActiveRecord::Audit.paginate_by_sql(the_sql,
+    @users_activity = Audited::Audit.paginate_by_sql(the_sql,
                                                :page => params[:page],
                                                :per_page => 30)
   end
