@@ -72,6 +72,10 @@ gem 'simple_token_authentication', '~> 1.0'
 gem 'rack-cors', :require => 'rack/cors'
 gem 'redcarpet'
 
+group :production do
+  gem 'puma'
+end
+
 group :development do
    gem 'web-console', '~> 2.0'
    gem 'spring'
