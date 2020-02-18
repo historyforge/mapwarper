@@ -1,6 +1,7 @@
 class AuditsController < ApplicationController
   layout "application"
-
+  before_filter :authenticate_user!
+  
   def show
     @audit  = Audited::Audit.find(params[:id])
   end

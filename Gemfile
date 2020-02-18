@@ -34,7 +34,8 @@ gem 'sdoc', '~> 0.4.0',          group: :doc
 # Use debugger
 # gem 'debugger', group: [:development, :test]
 
-gem 'devise'
+gem 'devise', ">= 4.7.1"
+
 gem 'devise-encryptable'
 
 gem 'omniauth-twitter'
@@ -42,6 +43,7 @@ gem 'omniauth-osm'
 gem 'omniauth-github'
 gem 'omniauth-mediawiki'
 gem 'omniauth-facebook'
+gem 'omniauth-rails_csrf_protection', '~> 0.1.2'
 
 gem 'pg' #, '~>0.21'
 
