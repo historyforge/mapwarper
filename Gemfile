@@ -61,7 +61,6 @@ gem 'spawnling', '~>2.1'
 gem "audited", "~> 4.7"
 
 gem 'georuby'
-gem 'geocoder'
 
 gem 'actionpack-action_caching' #, github: 'timwaters/actionpack-action_caching', branch: 'feature/take_format_from_request'
 gem 'redis-rails', '~> 5'
