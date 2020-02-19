@@ -80,6 +80,7 @@ gem 'puma'
 group :production do
   gem 'airbrake'
   gem 'non-stupid-digest-assets'
+  gem 'dalli'
 end
 
 group :development do
