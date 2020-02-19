@@ -153,6 +153,8 @@ GEM
     nio4r (2.5.2)
     nokogiri (1.10.8)
       mini_portile2 (~> 2.4.0)
+    non-stupid-digest-assets (1.0.9)
+      sprockets (>= 2.0)
     oauth (0.5.4)
     oauth2 (1.4.4)
       faraday (>= 0.8, < 2.0)
@@ -339,6 +341,7 @@ DEPENDENCIES
   jquery-ui-rails (= 3.0.1)
   letter_opener
   mocha
+  non-stupid-digest-assets
   omniauth-facebook
   omniauth-github
   omniauth-mediawiki
