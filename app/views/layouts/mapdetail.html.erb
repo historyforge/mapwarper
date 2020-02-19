@@ -11,10 +11,6 @@
     <%= javascript_tag "jQuery.noConflict();" -%>
 
     <script type="text/javascript">
-      var addthis_share = {templates: {twitter: '{{url}} (from @<%=APP_CONFIG['addthis_twitter_user']%>)'}};
-      var addthis_config = {ui_click: true};
-
-
       jQuery(function() {
         jQuery("#wooTabs").tabs({selected:<%=@selected_tab||0 %>});
         jQuery("#wooTabs").bind("tabsselect", function(event, ui) {
