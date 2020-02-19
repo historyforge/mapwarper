@@ -75,21 +75,18 @@ gem 'simple_token_authentication', '~> 1.0'
 gem 'rack-cors', :require => 'rack/cors'
 gem 'redcarpet'
 
+gem 'puma'
+
 group :production do
-  gem 'puma'
   gem 'airbrake'
 end
 
 group :development do
-   gem 'web-console', '~> 2.0'
+   gem 'web-console', '~> 3.0'
    gem 'spring'
-   gem 'thin'
-   # gem 'capistrano', '~> 3.2.1'
-   # gem 'capistrano-rails',    :require => false
-   # gem 'capistrano-bundler',  :require => false
-   # gem 'rvm1-capistrano3',    :require => false
-   # gem 'i18n-tasks', '~> 0.9.6'
-  # gem 'localeapp'
+   gem 'letter_opener'
+   gem 'better_errors'
+   gem 'binding_of_caller'
 end
 
 group :test do
