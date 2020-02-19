@@ -69,7 +69,9 @@
         var bestGuessResult = <%= @bestguess_places.to_json.html_safe -%>;
         bestGuess(bestGuessResult);
   <% end -%>
-
+      <% if @center_map %>
+        centerToMap(<%= APP_CONFIG['center_lon'] %>, <%= APP_CONFIG['center_lat'] %>, 15)
+      <% end %>
     }
     function csv_upload() {
       jQuery("#upload_csv_form").append(jQuery("#file").clone()).hide();
