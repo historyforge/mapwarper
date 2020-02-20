@@ -37,7 +37,7 @@ class Map < ActiveRecord::Base
   acts_as_enum :rough_state, [:step_1, :step_2, :step_3, :step_4]
   audited :allow_mass_assignment => true
   
-  include PgSearch
+  include PgSearch::Model
   multisearchable :against => [:title, :description], :if => :warped_published_and_public?
   
   scope :warped,    -> { where({ :status => [Map.status(:warped), Map.status(:published)], :map_type => Map.map_type(:is_map)  }) }
@@ -971,8 +971,8 @@ class Map < ActiveRecord::Base
   end
   
   def clear_cache
-    Rails.cache.delete_matched ".*/maps/wms/#{self.id}.png\?status=warped.*"
-    Rails.cache.delete_matched "*/maps/tile/#{self.id}/*"
+    # Rails.cache.delete_matched ".*/maps/wms/#{self.id}.png\?status=warped.*"
+    # Rails.cache.delete_matched "*/maps/tile/#{self.id}/*"
   end
 
   #takes in the clipping mask file, transforms it to geo and converts to geojson, returning the geojson

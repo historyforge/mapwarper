@@ -5,7 +5,7 @@ class Layer < ActiveRecord::Base
   
   acts_as_commentable  
   
-  include PgSearch
+  include PgSearch::Model
   multisearchable :against => [:name, :description]
   
   validates_presence_of :name
@@ -41,8 +41,8 @@ class Layer < ActiveRecord::Base
   def update_layer
     create_tileindex
     set_bounds
-    Rails.cache.delete_matched "*/mosaics/tile/#{self.id}/*"
-    Rails.cache.delete_matched "*/mosaics/wms/#{self.id}?*"
+    # Rails.cache.delete_matched "*/mosaics/tile/#{self.id}/*"
+    # Rails.cache.delete_matched "*/mosaics/wms/#{self.id}?*"
   end
 
   def update_counts

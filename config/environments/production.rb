@@ -14,8 +14,8 @@ Rails.application.configure do
   config.consider_all_requests_local       = false
   config.action_controller.perform_caching = true
   # config.cache_store = :redis_store, "redis://localhost:6379/0/cache"
-  # config.cache_store = :mem_cache_store, "localhost:11211"
-  config.cache_store = :file_store, '/storage/cache'
+  config.cache_store = :mem_cache_store, "localhost:11211"
+  # config.cache_store = :file_store, '/storage/cache'
 
   # Enable Rack::Cache to put a simple HTTP cache in front of your application
   # Add `rack-cache` to your Gemfile before enabling this.
