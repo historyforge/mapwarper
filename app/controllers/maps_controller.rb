@@ -17,7 +17,7 @@ class MapsController < ApplicationController
   #skip_before_action :verify_authenticity_token, :only => [:save_mask, :delete_mask, :save_mask_and_warp, :mask_map, :rectify, :set_rough_state, :set_rough_centroid]
   before_action :set_wms_format, :only => :wms
 
-  # rescue_from ActiveRecord::RecordNotFound, :with => :bad_record
+  rescue_from ActiveRecord::RecordNotFound, :with => :bad_record
 
   helper :sort
   include SortHelper
