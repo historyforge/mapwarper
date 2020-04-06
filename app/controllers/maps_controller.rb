@@ -779,7 +779,9 @@ class MapsController < ApplicationController
     @map = Map.find(params[:id])
 
     cache_key = "map-#{params[:id]}-#{@map.updated_at.to_i}-#{Digest::SHA1.hexdigest(params.to_s)}"
-    data, ctype = Rails.cache.fetch cache_key { generate_wms_image }
+    data, ctype = Rails.cache.fetch(cache_key) do
+      generate_wms_image
+    end
     send_data data, :type => ctype, :disposition => "inline"
   end
   
