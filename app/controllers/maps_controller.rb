@@ -17,7 +17,7 @@ class MapsController < ApplicationController
   #skip_before_action :verify_authenticity_token, :only => [:save_mask, :delete_mask, :save_mask_and_warp, :mask_map, :rectify, :set_rough_state, :set_rough_centroid]
   before_action :set_wms_format, :only => :wms
 
-  rescue_from ActiveRecord::RecordNotFound, :with => :bad_record
+  # rescue_from ActiveRecord::RecordNotFound, :with => :bad_record
 
   helper :sort
   include SortHelper
@@ -778,10 +778,8 @@ class MapsController < ApplicationController
 
     @map = Map.find(params[:id])
 
-    # cache_key = "map-#{params[:id]}-#{@map.updated_at.to_i}-#{Digest::SHA1.hexdigest(params.to_s)}"
-    # data, ctype = Rails.cache.fetch(cache_key, &method(:generate_wms_image))
-
-    data, ctype = generate_wms_image
+    cache_key = "map-#{params[:id]}-#{@map.updated_at.to_i}-#{Digest::SHA1.hexdigest(params.to_s)}"
+    data, ctype = Rails.cache.fetch(cache_key, &method(:generate_wms_image))
 
     send_data data, :type => ctype, :disposition => "inline"
   end
