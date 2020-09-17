@@ -11,7 +11,7 @@ Devise.setup do |config|
   # note that it will be overwritten if you use your own mailer class
   # with default "from" parameter.
   # mapwarper - this is defined by config/application_config.rb  with config/application.yml
-  #config.mailer_sender = 'please-change-me-at-config-initializers-devise@example.com'
+  config.mailer_sender = 'historyforge@thehistorycenter.net'
 
   # Configure the class responsible to send e-mails.
   # config.mailer = 'Devise::Mailer'
@@ -233,11 +233,11 @@ Devise.setup do |config|
   # up on your models and hooks.
   # config.omniauth :github, 'APP_ID', 'APP_SECRET', scope: 'user,public_repo'
   config.omniauth :twitter,  APP_CONFIG["omniauth_twitter_key"], APP_CONFIG["omniauth_twitter_secret"]
-  
+
   config.omniauth :osm, APP_CONFIG["omniauth_osm_key"], APP_CONFIG["omniauth_osm_secret"], {:client_options => {:site => "https://www.openstreetmap.org"}}
-  
+
   config.omniauth :mediawiki,  APP_CONFIG["omniauth_mediawiki_key"], APP_CONFIG["omniauth_mediawiki_secret"], {:client_options => {:site => APP_CONFIG["omniauth_mediawiki_site"] }}
-  
+
   config.omniauth :github, APP_CONFIG["omniauth_github_key"], APP_CONFIG["omniauth_github_secret"]
 
   config.omniauth :facebook, APP_CONFIG["omniauth_facebook_key"], APP_CONFIG["omniauth_facebook_secret"]
