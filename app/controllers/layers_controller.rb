@@ -493,6 +493,8 @@ class LayersController < ApplicationController
       return false
     end
 
+    expires_in 1.hour, public: true
+
     begin
       @layer = Layer.find(params[:id])
 

@@ -776,6 +776,8 @@ class MapsController < ApplicationController
       return false
     end
 
+    expires_in 1.hour, public: true
+    
     @map = Map.find(params[:id])
 
     cache_key = "map-#{params[:id]}-#{@map.updated_at.to_i}-#{Digest::SHA1.hexdigest(params.to_s)}"
