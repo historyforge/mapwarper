@@ -82,6 +82,7 @@ group :production do
   gem 'airbrake'
   gem 'non-stupid-digest-assets'
   gem 'dalli'
+  gem 'puma_worker_killer', require: false
 end
 
 group :development do
